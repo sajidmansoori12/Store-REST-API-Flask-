@@ -14,9 +14,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #This turns off the flask's
 app.secret_key = 'sajid' #This secret key will be used to create jwt 
 api = Api(app) 
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
 
 jwt = JWT(app,authenticate,identity) #This will create an endpoint whose url will be '/auth'
 """ Note that authenticate function will be used whenever /auth endpoint is called and 
